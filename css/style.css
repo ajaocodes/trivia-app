@@ -9,13 +9,18 @@ h1{
     font-family: 'Reggae One', cursive;
 }
 
-#question{
+#questtag{
     padding: 25px; 
     width: 70%;
     background-color: papayawhip;
     border: 5px dotted red;
     font-size: x-large;
     margin:20px auto;
+}
+
+#difficulty {
+    padding: 50px 0px 0px 0px; 
+    font-size: large;
 }
 
 #answer {

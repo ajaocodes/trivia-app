@@ -1,7 +1,7 @@
 //Variable and constants
 
 //API URL
-const url = "https://opentdb.com/api.php?amount=5&category=21&difficulty=medium&type=multiple"
+const url = "https://opentdb.com/api.php?amount=10&category=21&type=multiple"
 const gameStart = {
     player1: 0,
     player2: 0,
@@ -11,6 +11,7 @@ const gameStart = {
 // let questions = [];
 const $upper = $('#upper')
 const $question = $('#question')
+const $difficulty = $('#difficulty')
 const $answer = $('#answer')
 const $a = $('#a') 
 const $b = $('#b') 
@@ -46,6 +47,9 @@ const setBoard = (question) => {
     
     //Updating questions 
 $question.text(randomQuestion.question) 
+
+// updating question difficulty
+$difficulty.text(randomQuestion.difficulty)
 
 //Updating Player scores
 $player1.text(gameStart.player1)
