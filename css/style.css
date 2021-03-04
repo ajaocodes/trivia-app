@@ -2,15 +2,21 @@
 /* body{
     padding: 200px;
 } */
-body {
+#bac {
     background-image: url(https://i.imgur.com/9TVS1Yf.png);
     background-size: contain;
+    
 }
 h1{
     text-align: center;
-    color: brown;
+    color: purple;
     font-family: 'Reggae One', cursive;
     font-size: 75px;
+    background-color:cornsilk;
+}
+
+#difficulty{
+    color: black;
 }
 
 /* .back-eye {
@@ -19,13 +25,14 @@ h1{
 } */
 
 #questtag{
-    padding: 25px; 
+    padding: 20px; 
     width: 68%;
     background-color: white;
     /* background-color: papayawhip; */
-    border: 5px dotted purple;
+    border: 10px dotted cyan;
     font-size: x-large;
     margin:20px auto;
+    color: black;
 }
 
 #difficulty {
@@ -37,7 +44,7 @@ h1{
     padding: 10px; 
     width: 70%;
     background-color: white;
-    border: 5px dotted gold;
+    border: 10px dotted lavender;
     font-size: large;
     margin: 50px auto;
     justify-content: space-between;
@@ -66,20 +73,20 @@ li {
     align-content: flex-start;
 }
 
-/* #scores {
+#scores {
     display: flex;
     width: 70%;
-    background-color: red;
+    background-color: violet;
     justify-content: center;
     margin: 10px auto;
     border: 5px solid black;
-} */
+}
 
-/* #player1, #player2 {
+#player1, #player2 {
     margin: 10px auto;
     text-align: center;
     background-color: cyan;
     width: 40%;
     border: 2px solid black;
     
-} */
+}

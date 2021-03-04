@@ -6,6 +6,7 @@ const gameStart = {
     player1: 0,
     player2: 0,
     currentquestion: {},
+    which: true,
 }
 
 // let questions = [];
@@ -49,7 +50,7 @@ const setBoard = (question) => {
 $question.text(randomQuestion.question) 
 
 // updating question difficulty
-$difficulty.text(randomQuestion.difficulty)
+$difficulty.text(randomQuestion.difficulty)  
 
 //Updating Player scores
 $player1.text(gameStart.player1)
@@ -61,15 +62,28 @@ $player2.text(gameStart.player2)
 const chooseAnswer = (event, question) => {
     // console.log(event)
     if (event.target.innerText === randomQuestion.correct_answer)  {
-        console.log("correct")
+        // console.log("correct")  
+        // setBoard(questions)
+        let which = true;
+        if(gameStart.which) {
+            gameStart.player1++
+            gameStart.which = !gameStart.which
+        } else{
+            // let which = true;
+            gameStart.player2++
+            gameStart.which = !gameStart.which           
+        }
         setBoard(questions)
     } else {
         // setBoard(questions)
-        console.log("incorrect")
+        // console.log("incorrect")
         setBoard(questions)
+        gameStart.which = !gameStart.which
     }
-}
 
+
+}
+$('li').off()
   $('li').on("click", (event) => {
     chooseAnswer(event, randomQuestion)
 })
