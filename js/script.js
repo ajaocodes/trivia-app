@@ -66,6 +66,7 @@ const chooseAnswer = (event, question) => {
     } else {
         // setBoard(questions)
         console.log("incorrect")
+        setBoard(questions)
     }
 }
 
