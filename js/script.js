@@ -2,10 +2,11 @@
 
 //API URL
 const url = "https://opentdb.com/api.php?amount=10&category=21&type=multiple"
+
+//Game scoring
 const gameStart = {
     player1: 0,
     player2: 0,
-    currentquestion: {},
     which: true,
 }
 
@@ -19,6 +20,7 @@ const $b = $('#b')
 const $c = $('#c') 
 const $d = $('#d') 
 const $scores = $('#scores') 
+const $reset = $('#reset')
 const $player1 = $('#player1 h4') 
 const $player2 = $('#player2 h4') 
 
@@ -27,10 +29,13 @@ const $player2 = $('#player2 h4')
 //FUNCTIONS
 //*********************************** */
 
+// to obtain random questions from the array
 const setBoard = (question) => {
     const randomIndex = Math.floor(Math.random() * question.length)
     const randomQuestion = question[randomIndex]
     
+
+    //To group all answer options in an array
     const allAnswers = [
                      randomQuestion.correct_answer,
                      randomQuestion.incorrect_answers[0],
@@ -57,6 +62,7 @@ $player1.text(gameStart.player1)
 $player2.text(gameStart.player2)
 
 
+
 //event listeners
 
 const chooseAnswer = (event, question) => {
@@ -76,20 +82,50 @@ const chooseAnswer = (event, question) => {
         setBoard(questions)
     } else {
         // setBoard(questions)
-        // console.log("incorrect")
+        console.log("incorrect")
         setBoard(questions)
         gameStart.which = !gameStart.which
     }
 
+if (gameStart.player1 === 5) { 
+    console.log("PLAYER 1 WINS")
+    alert ("Click game reset button")
+    } else{
+        console.log("Keep playing")
+    }
+
+if (gameStart.player2 === 5) {
+        console.log("PLAYER 2 WINS")
+        console.log("Click game reset button")
+        } else {
+            console.log("Keep playing")
+        }
+// if (gameStart.player1 || gameStart.player2 === 5){
+//     $reset = location.reload()
+// }
+$reset.on("click", event => {
+    location.reload()
+})
 
 }
+
+
+
+
 $('li').off()
   $('li').on("click", (event) => {
     chooseAnswer(event, randomQuestion)
 })
 
+$('button').on("click", (event) => {
+    console.log(event)
+})
 }
 
+
+// $reset.on("click", (event) => {
+//     console.log(event)
+// }
 
 $.ajax(url)
   .then((data) => {
@@ -109,7 +145,7 @@ $.ajax(url)
 
 
 
-// $('li').ready(function(){
+// $('document').ready(function(){
 //     $("li").on({
     
 //          mouseenter: function(){

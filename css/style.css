@@ -1,9 +1,15 @@
-
-/* body{
-    padding: 200px;
+/* 
+* {
+    margin: 0;
+    padding: 0px;
 } */
+/* 
+body{
+    justify-content: flex-start;
+} */
+
 #bac {
-    background-image: url(https://i.imgur.com/9TVS1Yf.png);
+    background-image: url(https://i.imgur.com/HTJSe6y.png);
     background-size: contain;
     
 }
@@ -12,7 +18,9 @@ h1{
     color: purple;
     font-family: 'Reggae One', cursive;
     font-size: 75px;
-    background-color:cornsilk;
+    /* background-color:cornsilk; */
+    background-image: url(https://i.imgur.com/HTJSe6y.png);
+    margin:unset;
 }
 
 #difficulty{
@@ -25,11 +33,10 @@ h1{
 } */
 
 #questtag{
-    padding: 20px; 
-    width: 68%;
-    background-color: white;
-    /* background-color: papayawhip; */
-    border: 10px dotted cyan;
+    /* padding: 20px;  */
+    width: 80%;
+    background-color: whitesmoke;
+    border: 5px solid cyan;
     font-size: x-large;
     margin:20px auto;
     color: black;
@@ -42,13 +49,24 @@ h1{
 
 #answer {
     padding: 10px; 
-    width: 70%;
+    width: 80%;
     background-color: white;
-    border: 10px dotted lavender;
+    border: 10px solid goldenrod;
     font-size: large;
     margin: 50px auto;
     justify-content: space-between;
     align-content: left;
+    
+}
+
+#reset {
+    /* width: 50px; */
+    background-color: gold;
+    border: 2px solid blueviolet;
+    height: 40px;
+    /* padding-top: 50px; */
+    justify-content: center;
+    font-weight: bold;
 }
 
 #answer ul{
@@ -75,7 +93,7 @@ li {
 
 #scores {
     display: flex;
-    width: 70%;
+    width: 80%;
     background-color: violet;
     justify-content: center;
     margin: 10px auto;
@@ -88,5 +106,4 @@ li {
     background-color: cyan;
     width: 40%;
     border: 2px solid black;
-    
 }
