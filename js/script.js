@@ -1,7 +1,7 @@
 //Variable and constants
 
 //API URL
-const url = "https://opentdb.com/api.php?amount=10&category=21&type=multiple"
+const url = "https://opentdb.com/api.php?amount=10&category=21&type=multiple&encode=url3986"
 
 //Game scoring
 const gameStart = {
@@ -34,36 +34,79 @@ const setBoard = (question) => {
     const randomIndex = Math.floor(Math.random() * question.length)
     const randomQuestion = question[randomIndex]
 
- //To group all answer options in an array
-const allAnswers = [
-                     randomQuestion.correct_answer,
-                     randomQuestion.incorrect_answers[0],
-                     randomQuestion.incorrect_answers[1],
-                     randomQuestion.incorrect_answers[2]
+//Decoding the URI component for all answer options
+
+    if (typeof randomQuestion.correct_answer === 'string') {
+    try {
+        fixCorrectAns = decodeURIComponent(randomQuestion.correct_answer);
+              } catch (error) { console.log(error) 
+          }
+    }
+
+    if (typeof randomQuestion.incorrect_answers[0] === 'string') {
+    try {
+        fixIncorrectAnsOne = decodeURIComponent(randomQuestion.incorrect_answers[0]);
+              } catch (error) { console.log(error) 
+         }
+    }
+
+    if (typeof randomQuestion.incorrect_answers[1]=== 'string') {
+    try {
+        fixIncorrectAnsTwo = decodeURIComponent(randomQuestion.incorrect_answers[1]);
+            } catch (error) { console.log(error) 
+        }
+    }
+
+    if (typeof randomQuestion.incorrect_answers[2]=== 'string') {
+    try {
+        fixIncorrectAnsThree = decodeURIComponent(randomQuestion.incorrect_answers[2]);
+             } catch (error) { console.log(error) 
+        }
+    }
+
+
+//all answwer options put in an array
+
+    const allAnswers = [
+                     fixCorrectAns,
+                     fixIncorrectAnsOne,
+                     fixIncorrectAnsTwo,
+                     fixIncorrectAnsThree
     ]
 
+
     let randomAns;
-    const answerSpots = [$a,$b, $c, $d]
+    const answerSpots = [$a,$b,$c,$d]
     allAnswers.forEach((answer) => {
         randomAns = Math.floor(Math.random() * answerSpots.length)
         answerSpots[randomAns].text(answer)
         answerSpots.splice(randomAns, 1)
       })
-    
-    //Updating questions 
-$question.text(randomQuestion.question) 
+
+
+//to fix questions string issues
+    if (typeof randomQuestion.question === 'string') {
+        try {
+            fixQuesIssues = decodeURIComponent(randomQuestion.question);
+            } catch (error) { console.log(error) 
+        }
+    }
+
+//updating questions
+    $question.text(fixQuesIssues)
+
 
 // updating question difficulty
-$difficulty.text(randomQuestion.difficulty)  
+    $difficulty.text(randomQuestion.difficulty)  
 
 //Updating Player scores
-$player1.text(gameStart.player1)
-$player2.text(gameStart.player2)
+    $player1.text(gameStart.player1)
+    $player2.text(gameStart.player2)
 
-//event listeners
 
+//listener event with some game logic
 const chooseAnswer = (event, question) => {
-    if (event.target.innerText === randomQuestion.correct_answer)  {
+    if (event.target.innerText === fixCorrectAns)  {
         let which = true;
         if(gameStart.which) {
             gameStart.player1++
@@ -80,23 +123,23 @@ const chooseAnswer = (event, question) => {
         gameStart.which = !gameStart.which
     }
 
-if (gameStart.player1 === 5) { 
-    console.log("PLAYER 1 WINS")
-    alert ("Click game reset button")
+    if (gameStart.player1 === 5) { 
+        alert ("PLAYER 1 WINS")
+        alert ("Click game reset button")
     } else{
         console.log("Keep playing")
     }
 
-if (gameStart.player2 === 5) {
-        console.log("PLAYER 2 WINS")
+    if (gameStart.player2 === 5) {
+        alert ("PLAYER 2 WINS")
         alert ("Click game reset button")
         } else {
             console.log("Keep playing")
         }
 
-$reset.on("click", event => {
+    $reset.on("click", event => {
     location.reload()
-})
+    })
 
 }
 
@@ -111,12 +154,13 @@ $('button').on("click", (event) => {
 })
 }
 
+
+//Getting the data from the API
 $.ajax(url)
   .then((data) => {
       questions = data.results;
+      console.log(questions)
    setBoard(questions)
 })
-
-
 
 
