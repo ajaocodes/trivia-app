@@ -97,7 +97,7 @@ const setBoard = (question) => {
 
 
 // updating question difficulty
-    $difficulty.text(randomQuestion.difficulty)  
+    $difficulty.text("Difficulty: " + randomQuestion.difficulty)  
 
 //Updating Player scores
     $player1.text(gameStart.player1)
@@ -107,6 +107,8 @@ const setBoard = (question) => {
 //listener event with some game logic
 const chooseAnswer = (event, question) => {
     if (event.target.innerText === fixCorrectAns)  {
+        console.log(event)
+        
         let which = true;
         if(gameStart.which) {
             gameStart.player1++

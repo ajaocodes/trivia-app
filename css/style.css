@@ -1,20 +1,21 @@
-/* 
-* {
+
+/* * {
     margin: 0;
     padding: 0px;
 } */
 
 #bac {
-    /* background-color: cornsilk; */
+    background-color: whitesmoke;
     background-size: cover;   
 }
 
-h1{
+h1 {
     text-align: center;
     color: purple;
     font-family: 'Reggae One', cursive;
+    background-color: cornsilk;
     font-size: 75px;
-    margin:unset;
+    margin: 0;
 }
 
 #difficulty{
@@ -26,23 +27,24 @@ h1{
     /* padding: 20px;  */
     width: 80%;
     background-color: whitesmoke;
-    border: 5px solid royalblue;
+    border: 4px dotted purple;
     font-size: x-large;
     margin:20px auto;
     color: black;
-    padding-left: 15px;
+    padding-left: 17px;
+    padding-top: 10px;
 }
 
 #difficulty {
-    padding: 50px 0px 0px 0px; 
+    padding: 40px 0px 0px 0px; 
     font-size: large;
 }
 
 #answer {
-    padding: 10px; 
-    width: 80%;
+    padding: 10px 30px ; 
+    width: 75%;
     background-color: white;
-    border: 10px solid goldenrod;
+    border: 5px solid goldenrod;
     font-size: large;
     margin: 50px auto;
     justify-content: space-between;
@@ -100,3 +102,14 @@ li {
     font-size: large;
     color:goldenrod;
 }
+
+#reset {
+    /* width: 50px; */
+    background-color: gold;
+    border: 2px solid blueviolet;
+    height: 40px;
+    /* padding-top: 50px; */
+    justify-content: center;
+    font-weight: bold;
+}
+
