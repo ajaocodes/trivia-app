@@ -9,17 +9,18 @@ body{
 } */
 
 #bac {
-    background-image: url(https://i.imgur.com/HTJSe6y.png);
+    /* background-image: url(https://i.imgur.com/HTJSe6y.png); */
     background-size: contain;
     
 }
+
 h1{
     text-align: center;
     color: purple;
     font-family: 'Reggae One', cursive;
     font-size: 75px;
     /* background-color:cornsilk; */
-    background-image: url(https://i.imgur.com/HTJSe6y.png);
+    /* background-image: url(https://i.imgur.com/HTJSe6y.png); */
     margin:unset;
 }
 

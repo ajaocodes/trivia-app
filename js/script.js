@@ -33,10 +33,9 @@ const $player2 = $('#player2 h4')
 const setBoard = (question) => {
     const randomIndex = Math.floor(Math.random() * question.length)
     const randomQuestion = question[randomIndex]
-    
 
-    //To group all answer options in an array
-    const allAnswers = [
+ //To group all answer options in an array
+const allAnswers = [
                      randomQuestion.correct_answer,
                      randomQuestion.incorrect_answers[0],
                      randomQuestion.incorrect_answers[1],
@@ -61,15 +60,10 @@ $difficulty.text(randomQuestion.difficulty)
 $player1.text(gameStart.player1)
 $player2.text(gameStart.player2)
 
-
-
 //event listeners
 
 const chooseAnswer = (event, question) => {
-    // console.log(event)
     if (event.target.innerText === randomQuestion.correct_answer)  {
-        // console.log("correct")  
-        // setBoard(questions)
         let which = true;
         if(gameStart.which) {
             gameStart.player1++
@@ -81,7 +75,6 @@ const chooseAnswer = (event, question) => {
         }
         setBoard(questions)
     } else {
-        // setBoard(questions)
         console.log("incorrect")
         setBoard(questions)
         gameStart.which = !gameStart.which
@@ -96,22 +89,18 @@ if (gameStart.player1 === 5) {
 
 if (gameStart.player2 === 5) {
         console.log("PLAYER 2 WINS")
-        console.log("Click game reset button")
+        alert ("Click game reset button")
         } else {
             console.log("Keep playing")
         }
-// if (gameStart.player1 || gameStart.player2 === 5){
-//     $reset = location.reload()
-// }
+
 $reset.on("click", event => {
     location.reload()
 })
 
 }
 
-
-
-
+//Event listener functions
 $('li').off()
   $('li').on("click", (event) => {
     chooseAnswer(event, randomQuestion)
@@ -122,43 +111,12 @@ $('button').on("click", (event) => {
 })
 }
 
-
-// $reset.on("click", (event) => {
-//     console.log(event)
-// }
-
 $.ajax(url)
   .then((data) => {
-
-    //   console.log(data.results)
       questions = data.results;
    setBoard(questions)
-   console.log(questions)
-    // console.log(setBoard(questions))
 })
 
 
-// console.log(questions)
-// console.log(data)
 
 
-
-
-
-// $('document').ready(function(){
-//     $("li").on({
-    
-//          mouseenter: function(){
-//             $("li").css("background-color", "gray");
-//         },  
-        
-//         mouseleave: function(){
-//             $("li").css("background-color", "white");
-//         }, 
-        
-//         dblclick: function(){
-//             $("li").css("background-color", "yellow");
-//         },
-       
-//     });
-// });
